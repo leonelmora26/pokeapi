@@ -73,7 +73,7 @@
       </div>
 
       <div class="card" v-if="filtronombre == true">
-        <button class="card-content" @click="abrirDetalle(index)">
+        <button class="card-content" @click="abrirDetallebuscar()">
           <div class="card-number">#{{ pokemonBuscado.numero }}</div>
           <div class="card-name">{{ pokemonBuscado.nombre }}</div>
           <div>Altura: {{ pokemonBuscado.estadistica }}</div>
@@ -289,7 +289,10 @@ function filtrarPokemonPorNombre() {
   }
 }
 function abrirDetalle(index) {
-  detallePokemon.value = pokemons.value[index];
+  if(activarfiltro.value==true){
+    detallePokemon.value = filtropokemones.value[index]
+  }else  detallePokemon.value = pokemons.value[index];
+
   mostrarModal.value = true;
 }
 function cerrarDetalle() {
@@ -297,6 +300,11 @@ function cerrarDetalle() {
 }
 function recargarPagina() {
   location.reload();
+}
+
+function abrirDetallebuscar(){
+  detallePokemon.value = pokemonBuscado.value
+  mostrarModal.value = true
 }
 onMounted(() => {
   obtenerurlpokemon();
