@@ -104,7 +104,7 @@
         Agregar Más
       </button>
     </div>
-    <div class="modal" v-if="mostrarModal">
+    <div class="modal" v-if="mostrarModal" @click.self="cerrarDetalle">
       <div class="modal-content">
         <div style="
             display: flex;
@@ -204,7 +204,6 @@ const colorestipo = {
   rock: "#A0522D",
   psychic: "#FF1493",
   ice: "#00CED1",
-  // fi
 };
 
 let ini = 1;
@@ -415,9 +414,8 @@ button {
 }
 
 .modal-image {
-  width: 420px;
+  width: 350px;
   height: auto;
-  margin-top: 10px;
 }
 
 .equis {
